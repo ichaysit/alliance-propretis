@@ -3,410 +3,199 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alliance Properties | Immobilier en Israël – Achat, vente et location</title>
-<meta name="description" content="Alliance Properties : achat, vente et location de biens immobiliers en Israël (Ra'anana, Jérusalem, Tel Aviv, Netanya). Une équipe francophone à votre service.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex,nofollow">
+<title>Administration | Alliance Properties</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0f1f33;--navy2:#1a3150;--gold:#b8923f;--gold2:#d8b966;--cream:#faf6ee;--ink:#1d2733;--mute:#6b7683;--line:#e7e1d3;--white:#fff}
+:root{--navy:#0f1f33;--gold:#b8923f;--cream:#faf6ee;--line:#e2dccd;--mute:#6b7683;--red:#b3261e}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-weight:400}
-h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.15}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
-.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
-.btn{display:inline-block;padding:14px 28px;border-radius:3px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;border:1px solid var(--gold);background:var(--gold);color:#fff;cursor:pointer;transition:.25s;font-family:inherit}
-.btn:hover{background:var(--navy);border-color:var(--navy)}
-.btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
-.btn.ghost:hover{background:#fff;color:var(--navy);border-color:#fff}
-/* header */
-header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
-header.solid{background:rgba(15,31,51,.97);box-shadow:0 2px 20px rgba(0,0,0,.15)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
-.logo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#fff;letter-spacing:.04em}
-.logo span{color:var(--gold2)}
-nav ul{display:flex;gap:34px;list-style:none}
-nav a{color:#fff;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;opacity:.9}
-nav a:hover{color:var(--gold2)}
-.burger{display:none;background:none;border:0;color:#fff;font-size:28px;cursor:pointer}
-/* hero */
-.hero{min-height:92vh;display:flex;align-items:center;text-align:center;color:#fff;position:relative;background:
- radial-gradient(1200px 600px at 80% 0%,rgba(184,146,63,.22),transparent 60%),
- linear-gradient(160deg,var(--navy) 0%,var(--navy2) 60%,#223f66 100%)}
-.hero:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.02) 0 2px,transparent 2px 22px)}
-.hero .wrap{position:relative;z-index:1;padding-top:110px;padding-bottom:70px}
-.hero h1{font-size:clamp(44px,7vw,92px);letter-spacing:.01em;margin:14px 0 18px}
-.hero h1 em{font-style:italic;color:var(--gold2)}
-.hero p{max-width:640px;margin:0 auto 34px;font-size:17px;font-weight:300;opacity:.92}
-.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.hero .meta{margin-top:56px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;opacity:.75}
-/* sections */
-section{padding:90px 0}
-.head{text-align:center;max-width:720px;margin:0 auto 46px}
-.head h2{font-size:clamp(34px,4.5vw,54px);margin:10px 0 12px;color:var(--navy)}
-.head p{color:var(--mute)}
-#biens{background:var(--cream)}
-.filters{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;margin-bottom:38px}
-.tabs{display:flex;border:1px solid var(--gold);border-radius:3px;overflow:hidden;background:#fff}
-.tabs button{padding:11px 22px;border:0;background:#fff;font:600 12px 'Montserrat';letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:var(--navy)}
-.tabs button.on{background:var(--gold);color:#fff}
-.filters select,.filters input{padding:11px 14px;border:1px solid var(--line);border-radius:3px;font:400 14px 'Montserrat';background:#fff;color:var(--ink);min-width:170px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.card{background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden;cursor:pointer;transition:.3s;display:flex;flex-direction:column}
-.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,31,51,.14)}
-.pic{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,var(--navy2),#2d4d7a);overflow:hidden}
-.pic img{width:100%;height:100%;object-fit:cover;transition:.5s}
-.card:hover .pic img{transform:scale(1.05)}
-.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,.75);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
-.ph svg{width:54px;height:54px;stroke:var(--gold2);fill:none;stroke-width:1.3}
-.badge{position:absolute;top:14px;left:14px;background:var(--gold);color:#fff;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;font-weight:600;border-radius:2px}
-.badge.loc{background:var(--navy)}
-.price{position:absolute;bottom:0;left:0;right:0;padding:36px 16px 12px;background:linear-gradient(transparent,rgba(0,0,0,.72));color:#fff;font-weight:600;font-size:18px;letter-spacing:.04em}
-.price small{font-weight:400;font-size:12px;opacity:.85}
-.body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
-.body h3{font-size:23px;color:var(--navy)}
-.addr{font-size:13px;color:var(--mute)}
-.specs{display:flex;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:13px;font-weight:500;color:var(--navy)}
-.specs span b{color:var(--gold);font-weight:600}
-.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:40px}
-/* services */
-.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.svc div{padding:34px 24px;border:1px solid var(--line);text-align:center;border-radius:4px;transition:.3s}
-.svc div:hover{border-color:var(--gold);box-shadow:0 10px 30px rgba(15,31,51,.08)}
-.svc h3{font-size:24px;color:var(--navy);margin:14px 0 8px}
-.svc p{font-size:14px;color:var(--mute)}
-.svc i{display:block;width:46px;height:2px;background:var(--gold);margin:0 auto}
-/* about */
-#apropos{background:var(--navy);color:#fff}
-#apropos .head h2{color:#fff}
-#apropos .head p{color:rgba(255,255,255,.75)}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.about p{font-weight:300;opacity:.9;margin-bottom:16px}
-.stat{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.stat div{border:1px solid rgba(216,185,102,.4);padding:26px;text-align:center;border-radius:4px}
-.stat b{display:block;font:600 40px 'Cormorant Garamond',serif;color:var(--gold2)}
-.stat span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
-/* contact */
-#contact{background:var(--cream)}
-.cwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;max-width:1040px;margin:0 auto}
-.cinfo h3{font-size:30px;color:var(--navy);margin-bottom:14px}
-.cinfo p{margin-bottom:10px;color:var(--mute)}
-.cinfo a{color:var(--navy);font-weight:600}
-form{display:grid;gap:14px}
-form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-form input,form textarea,form select{width:100%;padding:14px;border:1px solid var(--line);border-radius:3px;font:400 15px 'Montserrat';background:#fff}
-form input:focus,form textarea:focus,select:focus{outline:2px solid var(--gold2);border-color:var(--gold)}
-form textarea{min-height:130px;resize:vertical}
-.hp{position:absolute;left:-9999px}
-.consent{font-size:12.5px;color:var(--mute);display:flex;gap:8px;align-items:flex-start}
-.consent input{width:auto;margin-top:3px}
-#msg{font-size:14px;font-weight:500}
-footer{background:#0a1522;color:rgba(255,255,255,.75);padding:34px 0;text-align:center;font-size:13px}
-footer b{color:var(--gold2);font-family:'Cormorant Garamond',serif;font-size:22px;display:block;margin-bottom:6px}
-/* modal */
-.modal{position:fixed;inset:0;background:rgba(8,16,28,.82);z-index:100;display:none;overflow:auto;padding:30px 16px}
+body{font-family:'Montserrat',sans-serif;background:var(--cream);color:#1d2733;font-size:14px}
+h1,h2{font-family:'Cormorant Garamond',serif}
+button,input,select,textarea{font:inherit}
+.top{background:var(--navy);color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.top h1{font-size:26px}.top h1 span{color:#d8b966}
+.btn{padding:10px 18px;border-radius:3px;border:1px solid var(--gold);background:var(--gold);color:#fff;font-weight:600;cursor:pointer;font-size:13px}
+.btn:hover{opacity:.88}
+.btn.out{background:#fff;color:var(--navy);border-color:var(--line)}
+.btn.red{background:var(--red);border-color:var(--red)}
+.btn.sm{padding:6px 12px;font-size:12px}
+.demo{background:#fff3cd;color:#664d03;padding:10px 24px;font-size:13px;border-bottom:1px solid #ffe69c}
+.wrap{max-width:1100px;margin:0 auto;padding:24px}
+.login{max-width:380px;margin:12vh auto;background:#fff;padding:34px;border-radius:6px;border:1px solid var(--line)}
+.login h2{font-size:30px;color:var(--navy);margin-bottom:6px}
+.login p{color:var(--mute);margin-bottom:18px}
+label{display:block;font-weight:600;font-size:12px;margin:12px 0 5px;color:var(--navy)}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:3px;background:#fff}
+textarea{min-height:140px;resize:vertical}
+.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.row{background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px;display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.th{width:84px;height:64px;border-radius:3px;background:linear-gradient(135deg,#1a3150,#2d4d7a);flex:none;object-fit:cover}
+.info{flex:1;min-width:0}
+.info b{display:block;font-size:15px;color:var(--navy)}
+.info small{color:var(--mute)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;background:var(--cream);border:1px solid var(--line);margin-right:4px}
+.tag.off{background:#fde8e6;color:var(--red)}
+.acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.modal{position:fixed;inset:0;background:rgba(8,16,28,.7);display:none;overflow:auto;padding:20px;z-index:10}
 .modal.open{display:block}
-.mbox{background:#fff;max-width:960px;margin:0 auto;border-radius:6px;overflow:hidden;position:relative}
-.mclose{position:absolute;top:12px;right:14px;z-index:3;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);font-size:24px;cursor:pointer}
-.gal{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy2),#2d4d7a)}
-.gal img{width:100%;height:100%;object-fit:cover}
-.gal .arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:20px;cursor:pointer}
-.gal .l{left:14px}.gal .r{right:14px}
-.thumbs{display:flex;gap:8px;padding:10px 20px 0;overflow:auto}
-.thumbs img{width:78px;height:56px;object-fit:cover;border-radius:3px;cursor:pointer;opacity:.6;border:2px solid transparent}
-.thumbs img.on{opacity:1;border-color:var(--gold)}
-.mbody{padding:26px 30px 32px}
-.mbody h2{font-size:34px;color:var(--navy);margin:6px 0}
-.mprice{font:600 28px 'Cormorant Garamond',serif;color:var(--gold);margin-bottom:12px}
-.mspecs{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 18px}
-.mspecs span{background:var(--cream);border:1px solid var(--line);padding:7px 14px;border-radius:30px;font-size:13px;font-weight:500}
-.mdesc{white-space:pre-line;color:#3a4552;font-size:15px}
-.map{margin-top:22px}.map h3{font-size:22px;color:var(--navy);margin-bottom:8px}.map iframe{width:100%;height:300px;border:0;border-radius:4px;background:var(--cream)}
-.mcta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-.mcta .btn.ghost{color:var(--navy);border-color:var(--navy)}
-.mcta .btn.ghost:hover{background:var(--navy);color:#fff}
-@media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.svc{grid-template-columns:repeat(2,1fr)}.about,.cwrap{grid-template-columns:1fr}}
-@media(max-width:680px){
- nav ul{display:none;position:absolute;top:78px;left:0;right:0;background:var(--navy);flex-direction:column;gap:0;padding:8px 24px 20px}
- nav ul.open{display:flex}nav li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
- .burger{display:block}
- .grid,.svc{grid-template-columns:1fr}
- form .two{grid-template-columns:1fr}
- section{padding:64px 0}
- .filters select,.filters input{min-width:100%}
- .mbody{padding:20px}
-}
+.box{background:#fff;max-width:720px;margin:0 auto;border-radius:6px;padding:26px}
+.box h2{font-size:28px;color:var(--navy);margin-bottom:6px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.chk{display:flex;gap:18px;margin-top:14px}.chk label{display:flex;align-items:center;gap:6px;margin:0;font-weight:500}.chk input{width:auto}
+.ph{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.ph div{position:relative}.ph img{width:90px;height:68px;object-fit:cover;border-radius:3px;border:1px solid var(--line)}
+.ph button{position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;border:0;background:var(--red);color:#fff;cursor:pointer}
+.ph button.star{right:auto;left:-6px;background:var(--gold)}
+.ph .main img{outline:3px solid var(--gold)}
+.err{color:var(--red);margin-top:10px;font-weight:500}
+.foot{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+@media(max-width:640px){.g2,.g3{grid-template-columns:1fr}.row{flex-wrap:wrap}.acts{justify-content:flex-start}}
 </style>
 </head>
 <body>
-
-<header id="hdr">
-  <div class="wrap nav">
-    <a class="logo" href="#top">Alliance <span>Properties</span></a>
-    <nav>
-      <button class="burger" id="burger" aria-label="Menu">☰</button>
-      <ul id="menu">
-        <li><a href="#biens">Nos biens</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#apropos">À propos</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<div class="hero" id="top">
-  <div class="wrap">
-    <div class="eyebrow">Immobilier en Israël</div>
-    <h1>Trouvez le bien <em>qui vous ressemble</em></h1>
-    <p>Achat, vente et location de maisons et d'appartements à Ra'anana, Jérusalem, Tel Aviv, Netanya et dans tout le pays. Un accompagnement personnalisé, en français.</p>
-    <div class="cta">
-      <a class="btn" href="#biens">Découvrir nos biens</a>
-      <a class="btn ghost" href="#contact">Nous contacter</a>
-    </div>
-    <div class="meta">Agent immobilier agréé · N° <span id="lic"></span></div>
-  </div>
-</div>
-
-<section id="biens">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow">Sélection</div>
-      <h2>Nos biens</h2>
-      <p>Maisons, appartements, penthouses et studios à vendre ou à louer.</p>
-    </div>
-    <div class="filters">
-      <div class="tabs" id="tabs">
-        <button data-t="" class="on">Tous</button>
-        <button data-t="vente">À vendre</button>
-        <button data-t="location">À louer</button>
-      </div>
-      <select id="fcity"><option value="">Toutes les villes</option></select>
-      <select id="fsort">
-        <option value="rec">Plus récents</option>
-        <option value="asc">Prix croissant</option>
-        <option value="desc">Prix décroissant</option>
-      </select>
-      <input id="fq" type="search" placeholder="Rechercher…">
-    </div>
-    <div class="grid" id="grid"><div class="empty">Chargement…</div></div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow">Notre métier</div>
-      <h2>Nos services</h2>
-      <p>De la première visite à la remise des clés, nous vous accompagnons à chaque étape.</p>
-    </div>
-    <div class="svc">
-      <div><i></i><h3>Achat</h3><p>Recherche ciblée, visites, négociation et suivi jusqu'à la signature.</p></div>
-      <div><i></i><h3>Vente</h3><p>Estimation, mise en valeur de votre bien et sélection d'acheteurs sérieux.</p></div>
-      <div><i></i><h3>Location</h3><p>Trouver le locataire idéal ou le logement qui correspond à vos besoins.</p></div>
-      <div><i></i><h3>Conseil</h3><p>Analyse du marché et conseils pour investir en Israël en confiance.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="apropos">
-  <div class="wrap">
-    <div class="about">
-      <div>
-        <div class="eyebrow">À propos</div>
-        <h2 style="font-size:clamp(34px,4.5vw,52px);margin:10px 0 18px">Alliance Properties</h2>
-        <p>Alliance Properties est une agence spécialisée dans l'achat et la vente de biens immobiliers en Israël. Nous accompagnons des familles, des investisseurs et des futurs olim dans leur projet, avec transparence et disponibilité.</p>
-        <p>Notre approche : écouter vos besoins, vous présenter des biens réellement adaptés et sécuriser chaque étape de la transaction.</p>
-        <a class="btn" href="#contact" style="margin-top:10px">Parlons de votre projet</a>
-      </div>
-      <div class="stat">
-        <div><b>Achat</b><span>Vente · Location</span></div>
-        <div><b>FR · HE</b><span>Service bilingue</span></div>
-        <div><b>5+</b><span>Villes couvertes</span></div>
-        <div><b id="lic2">—</b><span>N° d'agent</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow">Contact</div>
-      <h2>Contactez-nous</h2>
-      <p>Une question sur un bien, une envie de vendre ou d'acheter ? Écrivez-nous, nous répondons rapidement.</p>
-    </div>
-    <div class="cwrap">
-      <div class="cinfo">
-        <h3>Alliance Properties</h3>
-        <p>Achat et vente de biens immobiliers en Israël.</p>
-        <p>Agent n° <b id="lic3"></b></p>
-        <p id="phoneRow" style="display:none">Téléphone : <a id="phoneA" href="#"></a></p>
-        <p id="waRow" style="display:none"><a id="waA" href="#" target="_blank" rel="noopener">Écrire sur WhatsApp →</a></p>
-        <p id="mailRow" style="display:none">Email : <a id="mailA" href="#"></a></p>
-      </div>
-      <form id="cform" novalidate>
-        <input type="hidden" name="bien" id="fbien" value="">
-        <p class="hp"><label>Ne pas remplir : <input name="_honey" tabindex="-1" autocomplete="off"></label></p>
-        <div class="two">
-          <input name="nom" placeholder="Nom et prénom *" required>
-          <input name="telephone" type="tel" placeholder="Téléphone">
-        </div>
-        <input name="email" type="email" placeholder="Email *" required>
-        <textarea name="message" placeholder="Votre message *" required></textarea>
-        <label class="consent"><input type="checkbox" required> J'accepte que mes informations soient utilisées pour me recontacter.</label>
-        <button class="btn" type="submit">Envoyer le message</button>
-        <div id="msg"></div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <b>Alliance Properties</b>
-    Achat et vente de biens immobiliers en Israël · Agent n° <span id="lic4"></span><br>
-    © <span id="yr"></span> Alliance Properties — Tous droits réservés
-  </div>
-</footer>
-
-<div class="modal" id="modal"><div class="mbox" id="mbox"></div></div>
-
+<div id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="config.js"></script>
-<script src="seed.js"></script>
+<script src="../config.js"></script>
+<script src="../seed.js"></script>
 <script>
 (function(){
-const C = window.SITE_CONFIG;
-const $ = s => document.querySelector(s);
-const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let ALL = [], state = {t:'',city:'',sort:'rec',q:''};
+const C=window.SITE_CONFIG, LIVE=!!(C.SUPABASE_URL&&C.SUPABASE_ANON_KEY&&window.supabase);
+const sb=LIVE?window.supabase.createClient(C.SUPABASE_URL,C.SUPABASE_ANON_KEY):null;
+const app=document.getElementById('app');
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let items=[], editing=null, photos=[];
 
-/* infos agence */
-['lic','lic2','lic3','lic4'].forEach(id=>{const e=document.getElementById(id); if(e) e.textContent=C.AGENT_LICENSE;});
-$('#yr').textContent = new Date().getFullYear();
-if(C.PHONE){$('#phoneRow').style.display='';$('#phoneA').textContent=C.PHONE;$('#phoneA').href='tel:'+C.PHONE.replace(/\s/g,'');}
-if(C.WHATSAPP){$('#waRow').style.display='';$('#waA').href='https://wa.me/'+C.WHATSAPP;}
-if(C.EMAIL){$('#mailRow').style.display='';$('#mailA').textContent=C.EMAIL;$('#mailA').href='mailto:'+C.EMAIL;}
+/* ---------- stockage ---------- */
+const LS='alliance_demo_listings';
+async function fetchAll(){
+  if(LIVE){const {data,error}=await sb.from('listings').select('*').order('created_at',{ascending:false});if(error)throw error;return data;}
+  try{const s=localStorage.getItem(LS);if(s)return JSON.parse(s);}catch(e){}
+  const d=window.SEED.map((x,i)=>Object.assign({id:'d'+i,published:true,created_at:new Date(Date.now()-i*1000).toISOString()},x));
+  saveLocal(d);return d;
+}
+function saveLocal(d){try{localStorage.setItem(LS,JSON.stringify(d));}catch(e){}}
+async function upsert(r){
+  if(LIVE){
+    if(r.id){const id=r.id;delete r.id;const {error}=await sb.from('listings').update(r).eq('id',id);if(error)throw error;}
+    else{const {error}=await sb.from('listings').insert(r);if(error)throw error;}
+  }else{
+    if(r.id){items=items.map(x=>x.id===r.id?Object.assign(x,r):x);}
+    else{items.unshift(Object.assign({id:'d'+Date.now(),created_at:new Date().toISOString()},r));}
+    saveLocal(items);
+  }
+}
+async function remove(id){
+  if(LIVE){const {error}=await sb.from('listings').delete().eq('id',id);if(error)throw error;}
+  else{items=items.filter(x=>x.id!==id);saveLocal(items);}
+}
 
-/* header */
-const hdr=$('#hdr');
-const onScroll=()=>hdr.classList.toggle('solid',window.scrollY>40);
-onScroll();addEventListener('scroll',onScroll);
-$('#burger').onclick=()=>$('#menu').classList.toggle('open');
-document.querySelectorAll('#menu a').forEach(a=>a.onclick=()=>$('#menu').classList.remove('open'));
-
-/* données */
-async function load(){
-  if(C.SUPABASE_URL && C.SUPABASE_ANON_KEY && window.supabase){
+/* ---------- vues ---------- */
+function loginView(msg){
+  app.innerHTML=`<div class="login"><h2>Espace agence</h2><p>Accès réservé. Connectez-vous.</p>
+  <form id="lf"><label>Email</label><input type="email" id="em" required autocomplete="username">
+  <label>Mot de passe</label><input type="password" id="pw" required autocomplete="current-password">
+  <div class="err" id="le">${esc(msg||'')}</div><button class="btn" style="width:100%;margin-top:16px">Se connecter</button></form></div>`;
+  document.getElementById('lf').onsubmit=async e=>{
+    e.preventDefault();
+    const {error}=await sb.auth.signInWithPassword({email:em.value.trim(),password:pw.value});
+    if(error)document.getElementById('le').textContent='Email ou mot de passe incorrect.';else start();
+  };
+}
+async function listView(){
+  try{items=await fetchAll();}catch(e){app.innerHTML='<div class="wrap err">Erreur de chargement : '+esc(e.message)+'</div>';return;}
+  app.innerHTML=`<div class="top"><h1>Alliance <span>Properties</span> · Admin</h1><div>${LIVE?'<button class="btn out sm" id="pw2">Mon mot de passe</button> <button class="btn out sm" id="lo">Déconnexion</button>':''}</div></div>
+  ${LIVE?'':'<div class="demo"><b>Mode démo</b> : Supabase n\'est pas encore configuré. Les modifications restent dans ce navigateur uniquement et n\'apparaissent pas sur le site public. Voir LISEZMOI.md.</div>'}
+  <div class="wrap"><div class="bar"><b>${items.length} bien(s)</b><button class="btn" id="add">+ Ajouter un bien</button></div>
+  <div id="list">${items.map(rowHtml).join('')||'<p>Aucun bien.</p>'}</div></div>
+  <div class="modal" id="md"><div class="box" id="bx"></div></div>`;
+  if(LIVE){document.getElementById('lo').onclick=async()=>{await sb.auth.signOut();start();};
+    document.getElementById('pw2').onclick=async()=>{const p=prompt('Nouveau mot de passe (8 caractères minimum) :');if(!p)return;if(p.length<8){alert('Trop court.');return;}const {error}=await sb.auth.updateUser({password:p});alert(error?('Erreur : '+error.message):'Mot de passe changé.');};}
+  document.getElementById('add').onclick=()=>openForm(null);
+  document.getElementById('list').onclick=async e=>{
+    const b=e.target.closest('button');if(!b)return;
+    const id=b.dataset.id,it=items.find(x=>String(x.id)===id);
     try{
-      const sb = window.supabase.createClient(C.SUPABASE_URL, C.SUPABASE_ANON_KEY);
-      const {data,error} = await sb.from('listings').select('*').eq('published',true).order('featured',{ascending:false}).order('created_at',{ascending:false});
-      if(error) throw error;
-      return data;
-    }catch(e){ console.error(e); $('#grid').innerHTML='<div class="empty">Impossible de charger les biens pour le moment.</div>'; return []; }
-  }
-  return window.SEED.map((s,i)=>Object.assign({id:'demo'+i,created_at:new Date(Date.now()-i*1000).toISOString(),published:true},s));
+      if(b.dataset.a==='edit')openForm(it);
+      else if(b.dataset.a==='del'){if(confirm('Supprimer définitivement « '+it.title+' » ?')){await remove(it.id);listView();}}
+      else if(b.dataset.a==='pub'){await upsert({id:it.id,published:!it.published});listView();}
+    }catch(err){alert('Erreur : '+err.message);}
+  };
 }
-
-const fmt = n => new Intl.NumberFormat('fr-FR').format(n);
-const priceTxt = l => l.price ? fmt(l.price)+' ₪'+(l.type==='location'?' <small>/ mois</small>':'') : 'Prix sur demande';
-const house = '<svg viewBox="0 0 48 48"><path d="M6 24 24 8l18 16M10 22v20h28V22M20 42V30h8v12"/></svg>';
-
-function card(l){
-  const img = (l.photos&&l.photos[0]) ? `<img loading="lazy" src="${esc(l.photos[0])}" alt="${esc(l.title)}">` : `<div class="ph">${house}<span>${esc(l.kind||'Bien')}</span></div>`;
-  const sp=[];
-  if(l.area) sp.push(`<span><b>${l.area}</b> m²</span>`);
-  if(l.rooms) sp.push(`<span><b>${String(l.rooms).replace('.',',')}</b> pièces</span>`);
-  if(l.bedrooms) sp.push(`<span><b>${l.bedrooms}</b> ch.</span>`);
-  if(l.floor) sp.push(`<span>Étage <b>${esc(l.floor)}</b></span>`);
-  return `<article class="card" data-id="${esc(l.id)}">
-    <div class="pic">${img}<span class="badge ${l.type==='location'?'loc':''}">${l.type==='location'?'À louer':'À vendre'}</span><div class="price">${priceTxt(l)}</div></div>
-    <div class="body"><h3>${esc(l.title)}</h3><div class="addr">${esc([l.address,l.city].filter(Boolean).join(' · ')||'Israël')}</div>
-    <div class="specs">${sp.join('')||'<span>Détails sur demande</span>'}</div></div></article>`;
+function rowHtml(l){
+  const img=l.photos&&l.photos[0]?`<img class="th" src="${esc(l.photos[0])}" alt="">`:'<div class="th"></div>';
+  const p=l.price?new Intl.NumberFormat('fr-FR').format(l.price)+' ₪':'—';
+  return `<div class="row">${img}<div class="info"><b>${esc(l.title)}</b><small>${esc(l.city||'')} · ${p}</small><div style="margin-top:4px"><span class="tag">${l.type==='location'?'Location':'Vente'}</span>${l.published?'<span class="tag">En ligne</span>':'<span class="tag off">Masqué</span>'}${l.photos&&l.photos.length?'':'<span class="tag off">Sans photo</span>'}</div></div>
+  <div class="acts"><button class="btn out sm" data-a="pub" data-id="${esc(l.id)}">${l.published?'Masquer':'Publier'}</button><button class="btn sm" data-a="edit" data-id="${esc(l.id)}">Modifier</button><button class="btn red sm" data-a="del" data-id="${esc(l.id)}">Supprimer</button></div></div>`;
 }
-
-function render(){
-  let r = ALL.filter(l=>(!state.t||l.type===state.t)&&(!state.city||l.city===state.city)&&(!state.q||(l.title+' '+l.city+' '+l.address+' '+l.description).toLowerCase().includes(state.q.toLowerCase())));
-  if(state.sort==='asc') r.sort((a,b)=>(a.price||0)-(b.price||0));
-  if(state.sort==='desc') r.sort((a,b)=>(b.price||0)-(a.price||0));
-  $('#grid').innerHTML = r.length ? r.map(card).join('') : '<div class="empty">Aucun bien ne correspond à votre recherche.</div>';
+function openForm(l){
+  editing=l;photos=l&&l.photos?[...l.photos]:[];
+  const v=k=>l&&l[k]!=null?esc(l[k]):'';
+  document.getElementById('bx').innerHTML=`<h2>${l?'Modifier le bien':'Nouveau bien'}</h2><form id="f">
+  <label>Titre *</label><input id="title" required value="${v('title')}">
+  <div class="g3"><div><label>Type *</label><select id="type"><option value="vente">À vendre</option><option value="location">À louer</option></select></div>
+  <div><label>Nature (ex. Appartement)</label><input id="kind" value="${v('kind')}"></div>
+  <div><label>Prix (₪)</label><input id="price" type="number" min="0" value="${v('price')}"></div></div>
+  <div class="g2"><div><label>Ville</label><input id="city" value="${v('city')}"></div><div><label>Adresse / quartier</label><input id="address" value="${v('address')}"></div></div>
+  <div class="g3"><div><label>Pièces</label><input id="rooms" type="number" step="0.5" min="0" value="${v('rooms')}"></div>
+  <div><label>Chambres</label><input id="bedrooms" type="number" min="0" value="${v('bedrooms')}"></div>
+  <div><label>Surface (m²)</label><input id="area" type="number" min="0" value="${v('area')}"></div></div>
+  <label>Étage</label><input id="floor" value="${v('floor')}">
+  <label>Description</label><textarea id="description">${v('description')}</textarea>
+  <label>Photos</label>
+  ${LIVE?'<input type="file" id="file" accept="image/*" multiple>':''}
+  <div style="display:flex;gap:8px;margin-top:8px"><input id="url" placeholder="ou coller l'adresse (URL) d'une photo"><button type="button" class="btn out" id="addurl">Ajouter</button></div>
+  <div class="ph" id="ph"></div>
+  <div class="chk"><label><input type="checkbox" id="published"> Visible sur le site</label><label><input type="checkbox" id="featured"> Mis en avant</label></div>
+  <div class="err" id="fe"></div>
+  <div class="foot"><button type="button" class="btn out" id="cancel">Annuler</button><button class="btn" id="save">Enregistrer</button></div></form>`;
+  type.value=l?l.type:'vente';published.checked=l?!!l.published:true;featured.checked=l?!!l.featured:false;
+  drawPh();
+  document.getElementById('md').classList.add('open');
+  cancel.onclick=()=>document.getElementById('md').classList.remove('open');
+  addurl.onclick=()=>{const u=url.value.trim();if(u){photos.push(u);url.value='';drawPh();}};
+  if(LIVE)file.onchange=async()=>{
+    fe.textContent='Envoi des photos…';
+    try{for(const f of file.files){
+      const path=Date.now()+'-'+Math.random().toString(36).slice(2,8)+'-'+f.name.replace(/[^\w.-]/g,'_');
+      const {error}=await sb.storage.from('photos').upload(path,await shrink(f),{contentType:'image/jpeg'});if(error)throw error;
+      photos.push(sb.storage.from('photos').getPublicUrl(path).data.publicUrl);}
+      fe.textContent='';drawPh();file.value='';
+    }catch(err){fe.textContent='Erreur photo : '+err.message;}
+  };
+  document.getElementById('f').onsubmit=async e=>{
+    e.preventDefault();
+    const n=k=>{const x=document.getElementById(k).value;return x===''?null:Number(x)};
+    const r={title:title.value.trim(),type:type.value,kind:kind.value.trim(),city:city.value.trim(),address:address.value.trim(),
+      price:n('price'),rooms:n('rooms'),bedrooms:n('bedrooms'),area:n('area'),floor:floor.value.trim(),
+      description:description.value.trim(),photos:photos,published:published.checked,featured:featured.checked};
+    if(editing)r.id=editing.id;
+    save.disabled=true;
+    try{await upsert(r);document.getElementById('md').classList.remove('open');listView();}
+    catch(err){fe.textContent='Erreur : '+err.message;save.disabled=false;}
+  };
 }
-
-function fillCities(){
-  const cs=[...new Set(ALL.map(l=>l.city).filter(Boolean))].sort();
-  $('#fcity').innerHTML='<option value="">Toutes les villes</option>'+cs.map(c=>`<option>${esc(c)}</option>`).join('');
-}
-
-/* fiche détail */
-let gi=0, gp=[];
-function openModal(id){
-  const l = ALL.find(x=>String(x.id)===String(id)); if(!l) return;
-  gp = (l.photos||[]).filter(Boolean); gi=0;
-  const sp=[];
-  sp.push(l.kind||'Bien');
-  if(l.area) sp.push(l.area+' m²');
-  if(l.rooms) sp.push(String(l.rooms).replace('.',',')+' pièces');
-  if(l.bedrooms) sp.push(l.bedrooms+' chambres');
-  if(l.floor) sp.push('Étage '+l.floor);
-  $('#mbox').innerHTML = `<button class="mclose" id="mclose" aria-label="Fermer">×</button>
-   <div class="gal" id="gal"></div><div class="thumbs" id="thumbs"></div>
-   <div class="mbody"><div class="eyebrow">${l.type==='location'?'À louer':'À vendre'} · ${esc(l.city||'Israël')}</div>
-   <h2>${esc(l.title)}</h2><div class="mprice">${priceTxt(l)}</div>
-   <div class="addr">${esc(l.address||'')}</div>
-   <div class="mspecs">${sp.map(s=>`<span>${esc(s)}</span>`).join('')}</div>
-   <div class="mdesc">${esc(l.description||'')}</div>
-   ${(l.address||l.city)?`<div class="map"><h3>Localisation</h3><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte" src="https://maps.google.com/maps?q=${encodeURIComponent([l.address,l.city,'Israël'].filter(Boolean).join(', '))}&hl=fr&z=15&output=embed"></iframe></div>`:''}
-   <div class="mcta"><a class="btn" href="#contact" id="mask">Demander une visite</a>${C.WHATSAPP?`<a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/${C.WHATSAPP}?text=${encodeURIComponent('Bonjour, je suis intéressé(e) par : '+l.title)}">WhatsApp</a>`:''}</div></div>`;
-  drawGal();
-  $('#modal').classList.add('open'); document.body.style.overflow='hidden';
-  $('#mclose').onclick=closeModal;
-  $('#mask').onclick=()=>{ $('#fbien').value=l.title; $('#cform').message.value='Bonjour, je souhaite organiser une visite pour : '+l.title+'.'; closeModal(); };
-}
-function drawGal(){
-  const g=$('#gal'), t=$('#thumbs');
-  if(!gp.length){ g.innerHTML=`<div class="ph" style="position:absolute;inset:0">${house}<span>Photos bientôt disponibles</span></div>`; t.innerHTML=''; return; }
-  g.innerHTML=`<img src="${esc(gp[gi])}" alt="">`+(gp.length>1?'<button class="arrow l" id="gl">‹</button><button class="arrow r" id="gr">›</button>':'');
-  t.innerHTML = gp.length>1 ? gp.map((p,i)=>`<img src="${esc(p)}" data-i="${i}" class="${i===gi?'on':''}" alt="">`).join('') : '';
-  if(gp.length>1){ $('#gl').onclick=()=>{gi=(gi-1+gp.length)%gp.length;drawGal()}; $('#gr').onclick=()=>{gi=(gi+1)%gp.length;drawGal()}; t.querySelectorAll('img').forEach(i=>i.onclick=()=>{gi=+i.dataset.i;drawGal()}); }
-}
-function closeModal(){ $('#modal').classList.remove('open'); document.body.style.overflow=''; }
-$('#modal').addEventListener('click',e=>{ if(e.target.id==='modal') closeModal(); });
-addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
-$('#grid').addEventListener('click',e=>{ const c=e.target.closest('.card'); if(c) openModal(c.dataset.id); });
-
-/* filtres */
-$('#tabs').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; document.querySelectorAll('#tabs button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); state.t=b.dataset.t; render(); });
-$('#fcity').onchange=e=>{state.city=e.target.value;render()};
-$('#fsort').onchange=e=>{state.sort=e.target.value;render()};
-$('#fq').oninput=e=>{state.q=e.target.value;render()};
-
-/* formulaire de contact (FormSubmit : envoi par email, compatible GitHub Pages) */
-$('#cform').addEventListener('submit',async e=>{
-  e.preventDefault();
-  const f=e.target, msg=$('#msg'), btn=f.querySelector('button[type=submit]');
-  if(!f.reportValidity()) return;
-  if(f._honey.value) return;
-  const dest=C.CONTACT_EMAIL||C.EMAIL;
-  if(!dest){ msg.style.color='#b3261e'; msg.textContent='Formulaire non configuré (CONTACT_EMAIL manquant dans config.js).'; return; }
-  btn.disabled=true; msg.style.color='#6b7683'; msg.textContent='Envoi en cours…';
+async function shrink(f){
   try{
-    const r=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(dest),{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({_subject:'Nouveau message depuis le site Alliance Properties',_captcha:'false',_template:'table',
-        nom:f.nom.value,telephone:f.telephone.value,email:f.email.value,_replyto:f.email.value,bien:f.bien.value,message:f.message.value})});
-    const j=await r.json().catch(()=>({}));
-    if(!r.ok||j.success==='false') throw new Error(j.message||r.status);
-    msg.style.color='#2e7d32'; msg.textContent='Merci ! Votre message a bien été envoyé. Nous vous répondons très vite.'; f.reset();
-  }catch(err){
-    msg.style.color='#b3261e'; msg.textContent='Erreur d\'envoi. Merci de nous contacter directement par téléphone ou WhatsApp.';
-  }
-  btn.disabled=false;
-});
-
-load().then(d=>{ ALL=d; fillCities(); render(); });
+    if(!/^image\/(jpeg|png|webp)$/.test(f.type)) return f;
+    const bmp=await createImageBitmap(f), sc=Math.min(1,1600/Math.max(bmp.width,bmp.height));
+    const c=document.createElement('canvas');c.width=Math.round(bmp.width*sc);c.height=Math.round(bmp.height*sc);
+    c.getContext('2d').drawImage(bmp,0,0,c.width,c.height);
+    return await new Promise(r=>c.toBlob(b=>r(b||f),'image/jpeg',0.85));
+  }catch(e){return f;}
+}
+function drawPh(){
+  const ph=document.getElementById('ph');
+  ph.innerHTML=photos.map((p,i)=>`<div class="${i===0?'main':''}"><img src="${esc(p)}" alt="">${i>0?`<button type="button" class="star" data-s="${i}" title="Mettre en photo principale">★</button>`:''}<button type="button" data-i="${i}" title="Retirer">×</button></div>`).join('');
+  ph.querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>{photos.splice(+b.dataset.i,1);drawPh();});
+  ph.querySelectorAll('button[data-s]').forEach(b=>b.onclick=()=>{const k=+b.dataset.s;photos.unshift(photos.splice(k,1)[0]);drawPh();});
+}
+async function start(){
+  if(!LIVE)return listView();
+  const {data}=await sb.auth.getSession();
+  data.session?listView():loginView();
+}
+start();
 })();
 </script>
 </body>

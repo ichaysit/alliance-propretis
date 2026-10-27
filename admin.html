@@ -99,7 +99,7 @@ function loginView(msg){
   document.getElementById('lf').onsubmit=async e=>{
     e.preventDefault();
     const {error}=await sb.auth.signInWithPassword({email:em.value.trim(),password:pw.value});
-    if(error)document.getElementById('le').textContent='Email ou mot de passe incorrect.';else start();
+    if(error){const m=String(error.message||'');document.getElementById('le').textContent=/invalid login/i.test(m)?'Email ou mot de passe incorrect (ce n\'est PAS le mot de passe Gmail : c\'est celui créé dans Supabase).':/not confirmed/i.test(m)?'Compte non confirmé : dans Supabase, cochez « Auto Confirm User » ou confirmez l\'utilisateur.':/fetch|network/i.test(m)?'Impossible de joindre Supabase : vérifiez SUPABASE_URL dans config.js.':/api key/i.test(m)?'Clé invalide : vérifiez SUPABASE_ANON_KEY dans config.js.':('Erreur : '+m);}else start();
   };
 }
 async function listView(){

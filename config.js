@@ -6,8 +6,8 @@
    Jamais la clé « service_role » ni un mot de passe.
    ============================================================ */
 window.SITE_CONFIG = {
-  SUPABASE_URL: "",        // ex : https://abcdxyz.supabase.co
-  SUPABASE_ANON_KEY: "",   // clé « anon public » ou « publishable »
+  SUPABASE_URL: "https://khzxbuhpesepencdyviz.supabase.co",        // ex : https://abcdxyz.supabase.co
+  SUPABASE_ANON_KEY: "sb_publishable_oTTPXMkcVpu0uZ52UDeJZw_M-LgoxwQ",   // clé « anon public » ou « publishable »
   AGENCY_NAME: "Alliance Properties",
   AGENT_LICENSE: "3245977",
   PHONE: "+972 54-623-6024",

@@ -9,6 +9,9 @@
 ## Contenu du dossier
 Tous les fichiers sont dans UN SEUL dossier, sans sous-dossier :
 ```
+index.html, biens.html, bien.html, services.html, agence.html, contact.html, 404.html   site public (pages)
+site.css          le design du site public
+core.js, inner.js, home.js, biens.js, bien.js, contact.js   comportements du site public
 index.html        site public
 admin.html        espace de l'agent (CRUD + photos)
 config.js         réglages (clés Supabase, téléphone, email)

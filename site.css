@@ -133,6 +133,18 @@ h4{font-size:.95rem;font-weight:500;letter-spacing:-.01em}
   .heros .console{grid-column:1 / -1;grid-row:2}
 }
 
+/* la photo satellite d'Israël dans l'arche */
+.arc .terre,.arc .terre-flou{position:absolute;display:block;max-width:none;pointer-events:none;user-select:none}
+.arc .terre{left:0;top:0;width:100%;height:auto;opacity:0;transition:opacity 1.8s var(--ease);will-change:left,top,width;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 calc(var(--m,0) * 24%),#000 calc(100% - var(--m,0) * 24%),transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 calc(var(--m,0) * 24%),#000 calc(100% - var(--m,0) * 24%),transparent)}
+.arc .terre-flou{position:absolute;left:0;width:100%;top:0;height:100%;filter:blur(18px);opacity:0;pointer-events:none}
+.arc .terre-flou::before,.arc .terre-flou::after{content:"";position:absolute;top:0;bottom:0;width:51%}
+.arc .terre-flou::before{left:0;background:linear-gradient(180deg,#212d45 0%,#212d45 55%,#c7b49c 100%)}
+.arc .terre-flou::after{right:0;background:linear-gradient(180deg,#705c40 0%,#b49f76 50%,#baa383 100%)}
+.heros.pret .arc .terre{opacity:1}
+.arc .voile{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,43,47,.55) 0,rgba(5,43,47,0) 28%,rgba(5,43,47,0) 58%,rgba(5,43,47,.6) 100%)}
+
 /* version épinglée : l'arche grandit jusqu'à remplir l'écran */
 .epingle.heros{height:var(--hh,260svh)}
 .epingle .heros-pin{position:sticky;top:0;display:block;height:100svh;min-height:0;padding:0}

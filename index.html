@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="site.css">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "RealEstateAgent", "name": "Alliance Properties", "url": "https://ichaysit.github.io/alliance-propretis/", "image": "https://ichaysit.github.io/alliance-propretis/logo.png", "telephone": "+972546236024", "email": "alliancepropertiesnadlan@gmail.com", "areaServed": {"@type": "Country", "name": "Israël"}, "knowsLanguage": ["fr"], "description": "Agence immobilière : achat, vente et location de maisons et d'appartements en Israël, avec un accompagnement en français.", "identifier": "3245977"}</script>
+<link rel="preload" as="image" href="israel.webp" type="image/webp">
 </head><body data-page="home">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="mk" viewBox="0 0 100 94"><path d="M0 35 49 0 100 35 85 37 49 12 15 37Z" fill="currentColor"/><path d="M0 93 19 93 62 31 42 31Z" fill="#d9b05a"/><path d="M54 46 65 46 100 93 86 93Z" fill="currentColor"/></symbol></svg>
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -40,7 +41,7 @@
       <p class="lead apparait d1">Achat, vente et location de maisons et d’appartements. Un agent qui vous répond en français, de la première visite à la signature.</p>
       <div class="actions apparait d2"><a class="btn  mag" href="biens.html"><span>Voir les biens</span><span class="pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="btn verre mag" href="#" data-ap="wa" data-text="Bonjour, je souhaite des informations."><span>Écrire sur WhatsApp</span><span class="pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
     </div>
-    <div class="arc" id="arc" aria-hidden="true"><canvas class="lumiere" id="lumiere"></canvas><div class="scene-hero" id="scene-hero"></div></div>
+    <div class="arc" id="arc" aria-hidden="true"><div class="terre-flou" id="terre-flou"></div><img class="terre" id="terre" src="israel.webp" alt="" width="1248" height="2743" fetchpriority="high"><div class="voile"></div></div>
     <form class="console apparait d3" action="biens.html" method="get" id="console" aria-labelledby="console-t">
       <h2 id="console-t">Cherchez votre bien</h2>
       <div class="seg" role="radiogroup" aria-label="Type d’opération"><span class="thumb" aria-hidden="true"></span>
@@ -133,7 +134,7 @@
       <div><h4>Nous joindre</h4><ul><li><a data-ap="phone" href="#"></a></li><li><a data-ap="mail" href="#"></a></li><li><a data-ap="wa" data-keep data-text="Bonjour, je souhaite des informations." href="#">WhatsApp</a></li><li>Agent immobilier agréé n° <span data-ap="licence"></span></li></ul></div>
     </div>
     <p class="pied-grand" id="grand" aria-hidden="true">ALLIANCE</p>
-    <div class="pied-bas"><span>© <span data-ap="annee"></span> Alliance Properties. Tous droits réservés.</span><span>Immobilier en Israël, en français</span></div>
+    <div class="pied-bas"><span>© <span data-ap="annee"></span> Alliance Properties. Tous droits réservés.</span><span>Immobilier en Israël, en français</span><span>Image : données Copernicus Sentinel modifiées, 2022 (Sentinel-Hub, QGIS)</span></div>
   </div>
 </footer>
 <a class="wa" id="wa" href="#" aria-label="Écrire sur WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.2.4.1.6-.1l.8-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg></a>

@@ -7,20 +7,25 @@ const ease=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
 const smooth=(a,b,x)=>{const t=clamp((x-a)/(b-a),0,1);return t*t*(3-2*t)};
 
 AP.ready(async()=>{
-  const hero=$('#haut'),arc=$('#arc'),cv=$('#lumiere'),scene=$('#scene-hero'),cons=$('#console');
+  const hero=$('#haut'),arc=$('#arc'),terre=$('#terre'),flou=$('#terre-flou'),cons=$('#console');
 
-  /* --- ouverture : le soleil se lève dans l'arche, les fenêtres s'allument --- */
-  scene.innerHTML=AP.cityScene({w:1600,h:680,seed:'alliance-ap',anim:true});
-  const L=AP.light(cv,{k:0,dim:0,rise:reduce?1:0,sx:.76,p:0});
-  let pe=0;                               /* progression eau-douce de l'ouverture (0 → 1) */
-  AP.layers(scene,{scroll:1,mouse:true,off:()=>pe*innerHeight*.28});
-  setTimeout(()=>{
-    hero.classList.add('pret');$('svg',scene).classList.add('go');
-    if(reduce)return;
-    const t0=performance.now(),D=3800;
-    const tick=t=>{const k=clamp((t-t0)/D,0,1);L.rise=1-Math.pow(1-k,3);if(k<1)requestAnimationFrame(tick)};
-    requestAnimationFrame(tick);
-  },250);
+  /* --- ouverture : la photo satellite d'Israël apparaît dans l'arche --- */
+  setTimeout(()=>hero.classList.add('pret'),250);
+  let pe=0;                               /* progression de l'ouverture (0 → 1) */
+
+  /* la photo suit l'arche, puis se dégage pour montrer le pays (le flou prolonge les bords) */
+  const RATIO=2743/1248, FOCUS=.35;       /* .35 = hauteur de Tel Aviv / Ra'anana sur l'image */
+  function earth(bl,bt,bw,bh,k,w0){
+    const vh=innerHeight;
+    const wf=Math.max(vh*1.04/RATIO,Math.min(innerWidth*.84,vh/(.42*RATIO)));
+    const w=Math.max(lerp(w0,wf,k),bh/RATIO);
+    const ih=w*RATIO,off=clamp(ih*FOCUS-bh/2,0,Math.max(0,ih-bh));
+    terre.style.width=w.toFixed(1)+'px';terre.style.height=ih.toFixed(1)+'px';
+    terre.style.left=(bl+(bw-w)/2).toFixed(1)+'px';terre.style.top=(bt-off).toFixed(1)+'px';
+    flou.style.top=(bt-off).toFixed(1)+'px';flou.style.height=ih.toFixed(1)+'px';
+    flou.style.opacity=smooth(.1,.7,k).toFixed(3);
+    arc.style.setProperty('--m',smooth(.2,.9,k).toFixed(3));
+  }
 
   /* --- version épinglée : l'arche grandit jusqu'à remplir l'écran --- */
   let pinned=false;
@@ -32,7 +37,8 @@ AP.ready(async()=>{
     else{
       hero.style.removeProperty('--hh');
       ['--cl','--cr','--ct','--rad'].forEach(v=>arc.style.removeProperty(v));
-      hero.style.removeProperty('--p');cons.style.removeProperty('--cs');cons.classList.remove('actif');L.sx=.5;L.p=0;pe=0;
+      hero.style.removeProperty('--p');cons.style.removeProperty('--cs');cons.classList.remove('actif');pe=0;
+      const w=arc.clientWidth;earth(0,0,w,arc.clientHeight,0,w);
     }
   }
   setup();addEventListener('resize',setup);
@@ -49,7 +55,7 @@ AP.ready(async()=>{
     hero.style.setProperty('--p',pe.toFixed(3));
     const cs=clamp((s-.6)/.26,0,1);
     cons.style.setProperty('--cs',cs.toFixed(3));cons.classList.toggle('actif',cs>.5);
-    L.sx=lerp((geom.cl+(1-geom.cl-geom.cr)/2),.5,pe);L.p=pe;
+    earth(cl,ct,w,vh-ct,pe,(1-geom.cl-geom.cr)*vw);
   });
 
   /* clavier : si la recherche reçoit le focus, on amène l'écran jusqu'à elle */

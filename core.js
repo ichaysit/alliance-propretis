@@ -193,44 +193,10 @@ AP.layers=function(root,{scroll=1,mouse=true,off:offFn}={}){
 };
 
 /* dessin propre à chaque bien (utilisé tant qu'il n'y a pas de photo) */
-AP.homeScene=function(l,{w=800,h=600,tall=false}={}){
-  const seed=String(l.id)+'|'+(l.title||''),R=rng(seed),K=S(R,false,0);
-  const id='s'+(++UID),glace=l.type==='location';
-  const kind=String(l.kind||'').toLowerCase();
-  const gy=h*.78;
-  const horiz=glace?'#fff3dc':'#f6cf9a', mid=glace?'#c9a27a':'#c2714f', top=glace?'#5a4130':'#3a281c', top2=glace?'#8a6a4e':'#7a5a45';
-  let o=`<defs><linearGradient id="${id}c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${top}"/><stop offset=".5" stop-color="${top2}"/><stop offset=".82" stop-color="${mid}"/><stop offset="1" stop-color="${horiz}"/></linearGradient><radialGradient id="${id}s"><stop offset="0" stop-color="#fff6d8"/><stop offset=".3" stop-color="${glace?'#fff1d6':'#f7d48a'}"/><stop offset="1" stop-color="${glace?'#fff1d6':'#f7d48a'}" stop-opacity="0"/></radialGradient></defs>`;
-  o+=`<rect width="${w}" height="${h}" fill="url(#${id}c)"/>`;
-  for(let i=0;i<9;i++)o+=`<circle cx="${f1(R()*w)}" cy="${f1(R()*h*.5)}" r="${f1(.5+R()*1.1)}" fill="#fff" opacity="${f1(.15+R()*.5)}"/>`;
-  const sx=w*(.18+R()*.64);
-  o+=`<circle cx="${f1(sx)}" cy="${f1(gy-h*.1)}" r="${f1(h*.34)}" fill="url(#${id}s)" opacity=".75"/>`;
-  // plan lointain
-  let x=-20,far='';
-  while(x<w+20){const bw=26+R()*50,bh=h*(.08+R()*.16);far+=K.bauhaus(x,gy,bw,bh,.1);x+=bw+4+R()*14}
-  o+=`<g style="--a:.3;--fa:.6">${far}</g>`;
-  let main='';
-  if(kind.includes('maison')||kind.includes('villa')||kind.includes('cottage')){
-    const vw=w*.62,vx=w*.14;
-    main=K.villa(vx,gy,vw,.4)+K.piscine(vx+vw*.1,gy,vw*.5)+K.cypres(vx-30,gy,h*.34)+K.cypres(vx+vw+34,gy,h*.28)+K.arbre(vx+vw+90,gy,26)+K.arbre(vx-80,gy,20);
-  }else if(kind.includes('penthouse')){
-    const tw=w*.2,tx=w*.38,th=h*.7;
-    main=K.tour(tx,gy,tw,th,.32)+K.bauhaus(tx-w*.2,gy,w*.17,h*.34,.35)+K.pierre(tx+tw+w*.03,gy,w*.2,h*.38,.35)+
-      `<rect class="w on" x="${f1(tx+tw*.2)}" y="${f1(gy-th-16)}" width="${f1(tw*.6)}" height="12" style="--o:1"/>`;
-  }else if(kind.includes('studio')){
-    const bw=w*.34,bh=h*.34,bx=w*.33;
-    main=K.pierre(bx,gy,bw,bh,.45)+K.cypres(bx-34,gy,h*.3)+K.arbre(bx+bw+40,gy,22)+K.bauhaus(bx-w*.26,gy,w*.2,h*.26,.2)+K.bauhaus(bx+bw+w*.1,gy,w*.2,h*.3,.2);
-  }else{
-    const n=2+Math.floor(R()*2);let px=w*.08;
-    for(let i=0;i<n;i++){
-      const bw=w*(.2+R()*.12),bh=h*(.32+R()*.28);
-      main+=(R()<.5?K.bauhaus(px,gy,bw,bh,.38):K.pierre(px,gy,bw,bh,.38));
-      px+=bw+w*.03;
-    }
-    main+=K.cypres(px+10,gy,h*.22);
-  }
-  o+=`<g style="--a:.8;--fa:.96">${main}</g><path class="sol-l" d="M0 ${f1(gy)}H${w}"/>`;
-  o+=`<rect y="${f1(gy+1)}" width="${w}" height="${f1(h-gy)}" fill="#2a1d15" opacity=".97"/>`;
-  return `<svg class="sc${glace?' glace':''}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">${o}</svg>`;
+AP.homeScene=function(l,{w=800,h=600}={}){
+  const id='s'+(++UID),rent=l.type==='location';
+  const a=rent?'#f6f2ea':'#f1ece2',b=rent?'#e6dfd0':'#ded6c5';
+  return `<svg class="sc ph" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="${w}" height="${h}" fill="url(#${id})"/><text x="50%" y="50%" text-anchor="middle" font-size="${Math.round(w/38)}" letter-spacing="${Math.round(w/200)}" fill="#8c8474" font-family="Instrument Sans,Inter,Arial,sans-serif">PHOTOS À VENIR</text></svg>`;
 };
 
 /* ---------- média d'un bien : photo ou dessin ---------- */

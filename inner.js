@@ -5,22 +5,6 @@ const {$,$$,clamp,reduce}=AP;
 AP.ready(()=>{
   const page=document.body.dataset.page;
 
-  /* arches des pages intérieures : lumière vivante + silhouettes de la ville */
-  $$('.page-tete .arc').forEach(arc=>{
-    const sc=$('.scene-hero',arc),cv=$('canvas.lumiere',arc);
-    if(sc){
-      sc.innerHTML=AP.cityScene({w:900,h:620,seed:'tete-'+(sc.dataset.seed||page),anim:true});
-      AP.layers(sc,{scroll:.5,mouse:true});
-      const svg=$('svg',sc);setTimeout(()=>svg.classList.add('go'),500);
-    }
-    if(cv)AP.light(cv,{k:+cv.dataset.k||0,dim:+cv.dataset.dim||0,sx:+cv.dataset.sx||.5,rise:1});
-  });
-
-  /* appel à l'action du bas de page */
-  $$('.appel canvas.lumiere').forEach(cv=>AP.light(cv,{k:+cv.dataset.k||0,dim:+cv.dataset.dim||.4,sx:+cv.dataset.sx||.5,rise:1}));
-  const pied=$('#scene-pied');
-  if(pied){pied.innerHTML=AP.cityScene({w:1600,h:420,seed:'pied-'+page,anim:false});AP.layers(pied,{scroll:.15,mouse:false})}
-
   /* services : lignes qui s'ouvrent */
   const srv=$('#srv');
   if(srv){

@@ -99,6 +99,6 @@ Le formulaire envoie un email à `CONTACT_EMAIL` (dans config.js) via le service
 - Seules les personnes créées dans Supabase peuvent modifier les biens ; le public ne voit que les biens « publiés ».
 
 
-## Palette « lin »
-Blanc cassé / beige (`--lin`, `--jour`), brun espresso (`--ink`), moka (`--mer`), champagne (`--lagon`, `--or-clair`), cognac (`--bougain`), or (`--or`). Les couleurs se changent dans `:root` en haut de `site.css`; le ciel animé et les dessins de bâtiments ont leurs teintes dans `core.js`.
+## Palette (blanc et beige clair)
+Blanc et beige très clair, texte presque noir. Les couleurs se changent dans `:root` en haut de `site.css`. Plus aucun dessin de bâtiment : les biens sans photo affichent un fond beige « Photos à venir ».
 Titres : Cormorant Garamond (Google Fonts). Texte : Instrument Sans.

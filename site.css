@@ -4,27 +4,26 @@
    du beige et du brun espresso, rehaussés de filets dorés. Les zones claires
    passent de l'ivoire du matin au sable du soir pendant le défilement.
    ========================================================================== */
-/* Palette « lin » : blanc cassé, beige, brun espresso, filets dorés.
-     Les noms historiques (--ink, --lagon, --bougain…) sont conservés : ink = brun espresso,
-     lagon = champagne, bougain = cognac, mer = moka. */
+/* Palette : blanc et beige clair, texte presque noir. Rien d'autre.
+     Les noms historiques (--ink, --lagon, --or…) sont conservés mais pointent vers ces neutres. */
 :root{
-  --ink:#2a1d15; --ink-2:#3a2a1f; --ink-3:#4c392b;
-  --mer:#5d4332; --lagon:#e6d3b3; --lagon-2:#f0e4cc;
-  --bougain:#7b4b2c; --bougain-2:#9a6338;
-  --or:#c9a45c; --or-clair:#e8cf94; --or-fonce:#7a5a1e;
-  --lin:#f5efe4; --lin-2:#ece2d0; --lin-3:#dccdb4;
-  --chaux:#f3ece0; --chaux-2:#e8dcc9; --blanc:#fffdf8;
-  --texte:#2b2018; --muet:#6b5a4a; --muet-clair:#cdbea8;
+  --ink:#1f1c18; --ink-2:#2b2722; --ink-3:#3a352e;
+  --mer:#efe9de; --lagon:#e6dece; --lagon-2:#f1ebdf;
+  --bougain:#1f1c18; --bougain-2:#3a352e;
+  --or:#b8a98f; --or-clair:#e6dece; --or-fonce:#7d6e55;
+  --lin:#faf8f4; --lin-2:#f3efe8; --lin-3:#e8e2d6;
+  --chaux:#f6f2ea; --chaux-2:#ece6da; --blanc:#ffffff;
+  --texte:#1f1c18; --muet:#6b665e; --muet-clair:#a8a094;
   --day:0;
-  --jour:color-mix(in oklab,#f8f3ea calc((1 - var(--day)) * 100%),#f1e3cf);
-  --jour-2:color-mix(in oklab,#ece1cd calc((1 - var(--day)) * 100%),#e5d3b8);
+  --jour:color-mix(in oklab,#fcfaf6 calc((1 - var(--day)) * 100%),#f7f2e9);
+  --jour-2:color-mix(in oklab,#f1ebdf calc((1 - var(--day)) * 100%),#ece4d6);
   --f-titre:'Cormorant Garamond','Cormorant','Playfair Display','Times New Roman',Georgia,serif;
   --f-texte:'Instrument Sans','Inter','Helvetica Neue',Arial,sans-serif;
   --ease:cubic-bezier(.2,.8,.2,1);
   --ease-io:cubic-bezier(.7,0,.2,1);
   --h:78px;
-  --arcade:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='120' viewBox='0 0 96 120' fill='none' stroke='%23e8cf94' stroke-opacity='.13' stroke-width='1'%3E%3Cpath d='M8 120V52a40 40 0 0 1 80 0v68'/%3E%3Cpath d='M20 120V54a28 28 0 0 1 56 0v66'/%3E%3C/svg%3E");
-  --arcade-b:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='120' viewBox='0 0 96 120' fill='none' stroke='%237b4b2c' stroke-opacity='.11' stroke-width='1'%3E%3Cpath d='M8 120V52a40 40 0 0 1 80 0v68'/%3E%3Cpath d='M20 120V54a28 28 0 0 1 56 0v66'/%3E%3C/svg%3E");
+  --arcade:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='120' viewBox='0 0 96 120' fill='none' stroke='%23a8977a' stroke-opacity='.14' stroke-width='1'%3E%3Cpath d='M8 120V52a40 40 0 0 1 80 0v68'/%3E%3Cpath d='M20 120V54a28 28 0 0 1 56 0v66'/%3E%3C/svg%3E");
+  --arcade-b:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='120' viewBox='0 0 96 120' fill='none' stroke='%23a8977a' stroke-opacity='.14' stroke-width='1'%3E%3Cpath d='M8 120V52a40 40 0 0 1 80 0v68'/%3E%3Cpath d='M20 120V54a28 28 0 0 1 56 0v66'/%3E%3C/svg%3E");
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -42,9 +41,6 @@ ul{list-style:none}
 .wrap{width:min(1320px,100% - 56px);margin-inline:auto}
 @media(max-width:640px){.wrap{width:calc(100% - 36px)}}
 section{position:relative}
-/* trame de lin : fils croisés, à peine visibles, par-dessus tout le site */
-body::after{content:"";position:fixed;inset:0;z-index:150;pointer-events:none;opacity:.55;
-  background-image:repeating-linear-gradient(0deg,rgba(90,60,35,.035) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(90,60,35,.03) 0 1px,transparent 1px 4px)}
 .bloc{padding:clamp(84px,11vw,170px) 0}
 
 /* ---------- typographie ---------- */
@@ -77,13 +73,6 @@ h4{font-family:var(--f-texte);font-size:.78rem;font-weight:600;text-transform:up
 .btn.sombre{background:var(--ink)}
 .btn.sombre:hover{background:var(--ink-3)}
 .btn:disabled{opacity:.6;cursor:wait}
-/* sur fond brun, photo ou verre sombre : bouton champagne */
-.capsule .btn,.appel .btn,.laterale .btn,.formulaire .btn,.console .btn,.selection .btn,.approche .btn,.p404 .btn,.pied .btn,.fiche-heros .btn{background:var(--or-clair);color:var(--ink);box-shadow:0 12px 30px -14px rgba(0,0,0,.5)}
-.capsule .btn:hover,.appel .btn:hover,.laterale .btn:hover,.formulaire .btn:hover,.console .btn:hover,.selection .btn:hover,.approche .btn:hover,.p404 .btn:hover,.pied .btn:hover,.fiche-heros .btn:hover{background:#f3dca4}
-.capsule .btn .pt,.appel .btn .pt,.laterale .btn .pt,.formulaire .btn .pt,.console .btn .pt,.selection .btn .pt,.approche .btn .pt,.p404 .btn .pt,.pied .btn .pt,.fiche-heros .btn .pt{background:var(--ink);color:#f6efe3}
-.appel .btn.verre,.laterale .btn.verre,.formulaire .btn.verre,.fiche-heros .btn.verre,.console .btn.verre,.selection .btn.verre,.p404 .btn.verre{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.34);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.appel .btn.verre:hover,.laterale .btn.verre:hover,.formulaire .btn.verre:hover,.fiche-heros .btn.verre:hover,.console .btn.verre:hover,.selection .btn.verre:hover,.p404 .btn.verre:hover{background:rgba(255,255,255,.2)}
-.appel .btn.verre .pt,.laterale .btn.verre .pt,.formulaire .btn.verre .pt,.fiche-heros .btn.verre .pt,.console .btn.verre .pt,.selection .btn.verre .pt,.p404 .btn.verre .pt{background:rgba(255,255,255,.92);color:var(--ink)}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
 
 /* ---------- en-tête ---------- */
@@ -522,3 +511,116 @@ h4{font-family:var(--f-texte);font-size:.78rem;font-weight:600;text-transform:up
   .js .monte,.js .apparait{opacity:1;transform:none;filter:none}
   ::view-transition-new(root){animation:none}
 }
+
+/* ==========================================================================
+   Thème clair : blanc et beige, rien d'autre
+   ========================================================================== */
+body{background:var(--jour)}
+/* en-tête */
+.capsule{background:rgba(255,255,255,.8);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);box-shadow:inset 0 0 0 1px rgba(31,28,24,.08),0 18px 40px -26px rgba(31,28,24,.3);color:var(--texte)}
+.mk{color:var(--ink)}
+.nav a{color:rgba(31,28,24,.66)}
+.nav a:hover,.nav a[aria-current=page]{color:var(--ink)}
+.nav a[aria-current=page]::after{background:var(--ink)}
+.pill{background:rgba(31,28,24,.06)}
+.burger{background:rgba(31,28,24,.06)}
+.burger span,.burger span::before{background:var(--ink)}
+.feuille{background:var(--lin)}
+.feuille .gros{color:var(--ink)}
+.feuille .bas{color:var(--muet)}
+/* boutons sur photo */
+.fiche-heros .btn{background:#fff;color:var(--ink)}
+.fiche-heros .btn .pt{background:var(--ink);color:#fff}
+.fiche-heros .btn.verre{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.fiche-heros .btn.verre .pt{background:#fff;color:var(--ink)}
+/* héros */
+.heros{background:var(--lin);color:var(--texte)}
+.heros-pin{background:linear-gradient(180deg,#fff,#f4f0e9)}
+.heros .lead{color:rgba(31,28,24,.72)}
+.arc{background:linear-gradient(180deg,#efe9de,#e2d9c7);box-shadow:0 0 0 1px rgba(31,28,24,.1),0 0 0 9px rgba(31,28,24,.04),0 40px 80px -36px rgba(31,28,24,.4)}
+.epingle .arc::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+.arc .voile{background:linear-gradient(180deg,rgba(31,28,24,.22) 0,rgba(31,28,24,0) 22%,rgba(31,28,24,0) 62%,rgba(31,28,24,.3) 100%)}
+.epingle .indice{color:rgba(31,28,24,.65)}
+/* console et filtres : verre blanc */
+.console{background:rgba(255,255,255,.8);backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);box-shadow:inset 0 0 0 1px rgba(31,28,24,.08),0 40px 80px -44px rgba(31,28,24,.45);color:var(--texte)}
+.console .mini{color:var(--muet)}
+.seg{background:rgba(31,28,24,.07)}
+.seg .thumb{background:#fff;box-shadow:0 4px 12px -4px rgba(31,28,24,.3)}
+.champ>span{color:var(--muet)}
+.champ select,.champ input,.champ textarea{background-color:rgba(255,255,255,.9);color:var(--texte);box-shadow:inset 0 0 0 1px rgba(31,28,24,.14)}
+.champ select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f1c18' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}
+.champ input::placeholder,.champ textarea::placeholder{color:rgba(31,28,24,.4)}
+.champ select:focus,.champ input:focus,.champ textarea:focus{box-shadow:inset 0 0 0 2px var(--ink);background-color:#fff}
+.filtres{background:rgba(255,255,255,.94);color:var(--texte);box-shadow:inset 0 0 0 1px rgba(31,28,24,.08),0 30px 60px -36px rgba(31,28,24,.4)}
+.budget>span{color:var(--muet)}
+.budget output{color:var(--texte)}
+.budget input[type=range]::-webkit-slider-runnable-track{background:linear-gradient(90deg,var(--ink) var(--v,100%),rgba(31,28,24,.15) var(--v,100%))}
+.budget input[type=range]::-moz-range-track{background:linear-gradient(90deg,var(--ink) var(--v,100%),rgba(31,28,24,.15) var(--v,100%))}
+.budget input[type=range]::-webkit-slider-thumb{background:var(--ink);box-shadow:0 0 0 4px rgba(31,28,24,.12)}
+.budget input[type=range]::-moz-range-thumb{background:var(--ink);box-shadow:0 0 0 4px rgba(31,28,24,.12)}
+/* villes */
+.ville-l::before{background:var(--lin-2)}
+@media(hover:hover){.ville-l:hover .vn,.ville-l:hover .vc{color:var(--ink)}.ville-l:hover .vf{background:var(--ink);color:#fff}}
+/* sélection */
+.selection{background:var(--lin-2);color:var(--texte)}
+.selection .lieu,.nuit .lieu{color:var(--muet)}
+.selection-tete .ligne-info{color:var(--muet)}
+.progres{background:rgba(31,28,24,.12)}
+.progres i{background:var(--ink)}
+.panneau .media{background:var(--lin-3);box-shadow:inset 0 0 0 1px rgba(31,28,24,.08)}
+.panneau.fin .in{background:#fff;box-shadow:inset 0 0 0 1px rgba(31,28,24,.1)}
+.etiq.loc{background:var(--ink);color:#fff}
+/* services : plus de dessins */
+.srv-int{grid-template-columns:1fr}
+.srv-dessin{display:none}
+/* méthode */
+.approche{background:var(--lin-2);color:var(--texte)}
+.etapes::before{background:rgba(31,28,24,.14)}
+.etapes::after{background:var(--ink)}
+.etape::before{background:var(--lin-2);box-shadow:inset 0 0 0 2px rgba(31,28,24,.35)}
+.etape.on::before{background:var(--ink);box-shadow:0 0 0 7px rgba(31,28,24,.1)}
+.etape .n{-webkit-text-stroke:1px rgba(31,28,24,.4)}
+.etape.on .n{color:var(--ink);-webkit-text-stroke-color:var(--ink)}
+.etape p{color:var(--muet)}
+/* appel à l'action : pas de dessin, une arche discrète */
+.appel{background:linear-gradient(180deg,#fff,var(--lin));color:var(--texte);min-height:0}
+.appel::before{display:none}
+.appel::after{content:"";position:absolute;right:max(28px,calc((100% - 1320px)/2));bottom:0;width:clamp(170px,26vw,380px);height:80%;border-radius:999px 999px 0 0;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(232,226,214,.8));box-shadow:inset 0 0 0 1px rgba(31,28,24,.1);z-index:-1}
+.appel-in{padding:clamp(90px,12vw,170px) 0}
+.appel.court .appel-in{padding-bottom:clamp(70px,9vw,120px)}
+.appel .lead{color:var(--muet)}
+.appel .tel{border-bottom-color:rgba(31,28,24,.4)}
+.appel .tel:hover{border-color:var(--ink)}
+.appel h2 em{color:var(--or-fonce)}
+/* pied de page */
+.pied{background:var(--lin-2);color:var(--muet)}
+.pied .marque{color:var(--ink)}
+.pied h4{color:var(--ink)}
+.pied a:not(.marque):hover{color:var(--ink)}
+.pied-grand{background:radial-gradient(500px 300px at var(--mx,30%) 40%,var(--ink) 0,rgba(31,28,24,.4) 40%,rgba(31,28,24,.14) 100%);-webkit-background-clip:text;background-clip:text}
+.pied-bas{border-top-color:rgba(31,28,24,.12);color:var(--muet)}
+/* en-têtes de pages */
+.page-tete{background:linear-gradient(180deg,#fff,var(--lin-2))}
+.page-tete .ligne-info{color:var(--or-fonce)}
+/* fiche d'un bien */
+.carte-zone{background:var(--lin-2)}
+.carte-zone .fond{stroke:rgba(31,28,24,.12)}
+.mosaique button,.bien-media{background:var(--lin-3)}
+.laterale{background:#fff;color:var(--texte);box-shadow:inset 0 0 0 1px rgba(31,28,24,.08),0 40px 70px -46px rgba(31,28,24,.4)}
+.laterale p,.laterale .petit,.consent{color:var(--muet)}
+.laterale hr{background:rgba(31,28,24,.12)}
+.consent input{background:rgba(255,255,255,.9);box-shadow:inset 0 0 0 1px rgba(31,28,24,.3)}
+.consent input:checked{background:var(--ink)}
+.consent input:checked::after{border-color:#fff}
+.retour.ok{color:#2f6b3f}.retour.ko{color:#a3412a}
+/* agence et contact */
+.carte-id{background:#fff;color:var(--texte);background-image:var(--arcade);box-shadow:inset 0 0 0 1px rgba(31,28,24,.1),0 40px 70px -46px rgba(31,28,24,.35)}
+.carte-id dt{color:var(--muet)}
+.plaque{box-shadow:inset 0 0 0 1px rgba(31,28,24,.1)}
+.formulaire{background:#fff;color:var(--texte);background-image:none;box-shadow:inset 0 0 0 1px rgba(31,28,24,.08),0 50px 90px -60px rgba(31,28,24,.4)}
+.mode:hover{background:#fff;color:var(--ink);box-shadow:0 22px 40px -28px rgba(31,28,24,.4)}
+.mode:hover small{color:var(--muet)}
+.mode:hover .ic{background:var(--ink);color:#fff}
+.p404{background:linear-gradient(180deg,#fff,var(--lin-2));color:var(--texte)}
+.p404 h1{background:linear-gradient(180deg,var(--ink),#a89b82);-webkit-background-clip:text;background-clip:text}
+.nuit h1 em,.nuit h2 em,.mer h2 em,.appel h2 em,.selection h2 em,.approche h2 em{color:var(--or-fonce)}

@@ -193,44 +193,10 @@ AP.layers=function(root,{scroll=1,mouse=true,off:offFn}={}){
 };
 
 /* dessin propre à chaque bien (utilisé tant qu'il n'y a pas de photo) */
-AP.homeScene=function(l,{w=800,h=600,tall=false}={}){
-  const seed=String(l.id)+'|'+(l.title||''),R=rng(seed),K=S(R,false,0);
-  const id='s'+(++UID),glace=l.type==='location';
-  const kind=String(l.kind||'').toLowerCase();
-  const gy=h*.78;
-  const horiz=glace?'#eafff0':'#ffc98e', mid=glace?'#2ea6a6':'#e0507a', top=glace?'#0d5560':'#0a3a41', top2=glace?'#1f8f94':'#3a6f86';
-  let o=`<defs><linearGradient id="${id}c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${top}"/><stop offset=".5" stop-color="${top2}"/><stop offset=".82" stop-color="${mid}"/><stop offset="1" stop-color="${horiz}"/></linearGradient><radialGradient id="${id}s"><stop offset="0" stop-color="#fff6d8"/><stop offset=".3" stop-color="${glace?'#d8eefa':'#f7d48a'}"/><stop offset="1" stop-color="${glace?'#d8eefa':'#f7d48a'}" stop-opacity="0"/></radialGradient></defs>`;
-  o+=`<rect width="${w}" height="${h}" fill="url(#${id}c)"/>`;
-  for(let i=0;i<9;i++)o+=`<circle cx="${f1(R()*w)}" cy="${f1(R()*h*.5)}" r="${f1(.5+R()*1.1)}" fill="#fff" opacity="${f1(.15+R()*.5)}"/>`;
-  const sx=w*(.18+R()*.64);
-  o+=`<circle cx="${f1(sx)}" cy="${f1(gy-h*.1)}" r="${f1(h*.34)}" fill="url(#${id}s)" opacity=".75"/>`;
-  // plan lointain
-  let x=-20,far='';
-  while(x<w+20){const bw=26+R()*50,bh=h*(.08+R()*.16);far+=K.bauhaus(x,gy,bw,bh,.1);x+=bw+4+R()*14}
-  o+=`<g style="--a:.3;--fa:.6">${far}</g>`;
-  let main='';
-  if(kind.includes('maison')||kind.includes('villa')||kind.includes('cottage')){
-    const vw=w*.62,vx=w*.14;
-    main=K.villa(vx,gy,vw,.4)+K.piscine(vx+vw*.1,gy,vw*.5)+K.cypres(vx-30,gy,h*.34)+K.cypres(vx+vw+34,gy,h*.28)+K.arbre(vx+vw+90,gy,26)+K.arbre(vx-80,gy,20);
-  }else if(kind.includes('penthouse')){
-    const tw=w*.2,tx=w*.38,th=h*.7;
-    main=K.tour(tx,gy,tw,th,.32)+K.bauhaus(tx-w*.2,gy,w*.17,h*.34,.35)+K.pierre(tx+tw+w*.03,gy,w*.2,h*.38,.35)+
-      `<rect class="w on" x="${f1(tx+tw*.2)}" y="${f1(gy-th-16)}" width="${f1(tw*.6)}" height="12" style="--o:1"/>`;
-  }else if(kind.includes('studio')){
-    const bw=w*.34,bh=h*.34,bx=w*.33;
-    main=K.pierre(bx,gy,bw,bh,.45)+K.cypres(bx-34,gy,h*.3)+K.arbre(bx+bw+40,gy,22)+K.bauhaus(bx-w*.26,gy,w*.2,h*.26,.2)+K.bauhaus(bx+bw+w*.1,gy,w*.2,h*.3,.2);
-  }else{
-    const n=2+Math.floor(R()*2);let px=w*.08;
-    for(let i=0;i<n;i++){
-      const bw=w*(.2+R()*.12),bh=h*(.32+R()*.28);
-      main+=(R()<.5?K.bauhaus(px,gy,bw,bh,.38):K.pierre(px,gy,bw,bh,.38));
-      px+=bw+w*.03;
-    }
-    main+=K.cypres(px+10,gy,h*.22);
-  }
-  o+=`<g style="--a:.8;--fa:.96">${main}</g><path class="sol-l" d="M0 ${f1(gy)}H${w}"/>`;
-  o+=`<rect y="${f1(gy+1)}" width="${w}" height="${f1(h-gy)}" fill="#052b2f" opacity=".97"/>`;
-  return `<svg class="sc${glace?' glace':''}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">${o}</svg>`;
+AP.homeScene=function(l,{w=800,h=600}={}){
+  const id='s'+(++UID),rent=l.type==='location';
+  const a=rent?'#f6f2ea':'#f1ece2',b=rent?'#e6dfd0':'#ded6c5';
+  return `<svg class="sc ph" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="${w}" height="${h}" fill="url(#${id})"/><text x="50%" y="50%" text-anchor="middle" font-size="${Math.round(w/38)}" letter-spacing="${Math.round(w/200)}" fill="#8c8474" font-family="Instrument Sans,Inter,Arial,sans-serif">PHOTOS À VENIR</text></svg>`;
 };
 
 /* ---------- média d'un bien : photo ou dessin ---------- */
@@ -413,8 +379,8 @@ float h(vec2 q){return fract(sin(dot(q,vec2(127.1,311.7)))*43758.5453);}
 float n(vec2 q){vec2 i=floor(q),f=fract(q);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}
 float fbm(vec2 q){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(q);q=q*2.03+vec2(5.2,1.3);a*=.5;}return v;}
 vec3 ramp(float y,float k){
-  vec3 a0=vec3(1.,.82,.55),a1=vec3(.97,.40,.52),a2=vec3(.30,.50,.68),a3=vec3(.04,.38,.44),a4=vec3(.02,.15,.18);
-  vec3 b0=vec3(.93,1.,.88),b1=vec3(.52,.9,.83),b2=vec3(.18,.64,.69),b3=vec3(.05,.42,.48),b4=vec3(.02,.17,.20);
+  vec3 a0=vec3(1.,.87,.64),a1=vec3(.93,.64,.46),a2=vec3(.64,.45,.34),a3=vec3(.31,.21,.155),a4=vec3(.165,.11,.08);
+  vec3 b0=vec3(1.,.975,.91),b1=vec3(.93,.84,.68),b2=vec3(.72,.58,.43),b3=vec3(.40,.29,.21),b4=vec3(.18,.12,.09);
   vec3 A=mix(a0,a1,smoothstep(0.,.22,y));A=mix(A,a2,smoothstep(.16,.46,y));A=mix(A,a3,smoothstep(.4,.74,y));A=mix(A,a4,smoothstep(.7,1.,y));
   vec3 B=mix(b0,b1,smoothstep(0.,.22,y));B=mix(B,b2,smoothstep(.16,.46,y));B=mix(B,b3,smoothstep(.4,.74,y));B=mix(B,b4,smoothstep(.7,1.,y));
   return mix(A,B,k);
@@ -424,7 +390,7 @@ void main(){
   float w1=fbm(q*1.5+vec2(t*.04,-t*.025));
   float w2=fbm(q*2.6+vec2(-t*.03,t*.05)+w1*1.8);
   float y=clamp(uv.y*.92+(w1-.5)*.34+(w2-.5)*.12+(m.y-.5)*.04,0.,1.);
-  vec3 c=mix(ramp(y,k),vec3(.02,.17,.2),dim);
+  vec3 c=mix(ramp(y,k),vec3(.165,.11,.08),dim);
   vec2 sp=vec2(sx+(m.x-.5)*.05,mix(-.18,.2,rise)+p*.12);
   vec2 dd=(uv-sp)*vec2(asp,1.);float d=length(dd);
   c+=vec3(1.,.72,.42)*exp(-d*3.2)*.5*(1.-k*.4)+vec3(1.,.9,.7)*exp(-d*9.)*.5;

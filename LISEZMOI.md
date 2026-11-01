@@ -97,3 +97,8 @@ Le formulaire envoie un email à `CONTACT_EMAIL` (dans config.js) via le service
 ## Sécurité
 - Ne mettez jamais de mot de passe dans les fichiers ni dans GitHub. Les mots de passe sont gérés uniquement par Supabase.
 - Seules les personnes créées dans Supabase peuvent modifier les biens ; le public ne voit que les biens « publiés ».
+
+
+## Palette (blanc et beige clair)
+Blanc et beige très clair, texte presque noir. Les couleurs se changent dans `:root` en haut de `site.css`. Plus aucun dessin de bâtiment : les biens sans photo affichent un fond beige « Photos à venir ».
+Titres : Cormorant Garamond (Google Fonts). Texte : Instrument Sans.

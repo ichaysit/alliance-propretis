@@ -31,7 +31,12 @@ AP.url=l=>'bien.html?id='+encodeURIComponent(l.id);
 
 /* ---------- données ---------- */
 let _data=null;
-function normalize(arr){return (arr||[]).map(x=>Object.assign({},x,{price:x.price==null?null:Number(x.price),rooms:x.rooms==null?null:Number(x.rooms)}))}
+function cleanKind(k){
+  k=String(k||'').trim();if(!k)return k;
+  if(/appartement/i.test(k.normalize('NFD').replace(/[\u0300-\u036f]/g,'')))return 'Appartement';
+  k=k.toLowerCase();return k.charAt(0).toUpperCase()+k.slice(1);
+}
+function normalize(arr){return (arr||[]).map(x=>Object.assign({},x,{kind:cleanKind(x.kind),price:x.price==null?null:Number(x.price),rooms:x.rooms==null?null:Number(x.rooms)}))}
 async function viaRest(){
   const u=C.SUPABASE_URL.replace(/\/$/,'')+'/rest/v1/listings?select=*&published=eq.true&order=featured.desc,created_at.desc';
   const r=await fetch(u,{headers:{apikey:C.SUPABASE_ANON_KEY,Accept:'application/json'}});

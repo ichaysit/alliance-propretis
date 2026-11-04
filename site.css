@@ -659,9 +659,9 @@ body{background:var(--jour)}
    ========================================================================== */
 :root{
   color-scheme:light;
-  --f-titre:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",system-ui,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-titre:'Cormorant Garamond','Cormorant','Playfair Display',Georgia,'Times New Roman',serif;
   --f-texte:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,"Segoe UI",Roboto,Arial,sans-serif;
-  --h:52px;--arcade:none;--arcade-b:none;
+  --h:52px;
   --gris-t:#7a7468;
   --r:22px;
   --bas-onglets:0px;
@@ -669,17 +669,16 @@ body{background:var(--jour)}
 html{font-size:100%;scroll-padding-top:72px}
 body{font-size:clamp(1rem,.35vw + .93rem,1.1875rem);line-height:1.47;letter-spacing:-.011em}
 .grain::after{display:none}
-.arcade{background-image:none}
 /* titres : grands, serrés, gras */
 h1,h2,h3,.t-titre{font-family:var(--f-titre)}
-h1{font-weight:700;letter-spacing:-.04em;line-height:1.04;font-size:clamp(2.5rem,6.6vw,5.75rem)}
-h2{font-weight:700;letter-spacing:-.034em;line-height:1.07;font-size:clamp(2rem,4.6vw,3.9rem)}
-h3{font-weight:600;letter-spacing:-.02em;line-height:1.2;font-size:clamp(1.2rem,1.6vw,1.5rem)}
+h1{font-weight:500;letter-spacing:-.022em;line-height:1.02;font-size:clamp(2.75rem,7vw,6.25rem)}
+h2{font-weight:500;letter-spacing:-.02em;line-height:1.05;font-size:clamp(2.2rem,4.8vw,4.2rem)}
+h3{font-weight:600;letter-spacing:-.01em;line-height:1.2;font-size:clamp(1.3rem,1.8vw,1.65rem)}
 h4{font-family:var(--f-texte);font-size:.8125rem;font-weight:600;text-transform:none;letter-spacing:-.005em;color:var(--gris-t)}
-h1 em,h2 em,.nuit h1 em,.nuit h2 em,.mer h2 em,.appel h2 em,.selection h2 em,.approche h2 em{font-style:normal;font-weight:inherit;color:var(--gris-t)}
+h1 em,h2 em,.nuit h1 em,.nuit h2 em,.mer h2 em,.appel h2 em,.selection h2 em,.approche h2 em{font-style:italic;font-weight:inherit;color:var(--or-fonce)}
 .lead{font-size:clamp(1.1rem,1.5vw,1.4rem);line-height:1.42;letter-spacing:-.016em;color:var(--gris-t)}
 .heros .lead,.appel .lead{color:var(--gris-t)}
-.num{font-family:var(--f-titre);font-weight:600;letter-spacing:-.03em}
+.num{font-family:var(--f-titre);font-weight:500;letter-spacing:-.01em}
 .ligne-info,.page-tete .ligne-info,.selection-tete .ligne-info{font-size:.9375rem;font-weight:600;letter-spacing:-.01em;text-transform:none;color:var(--gris-t)}
 /* boutons : pastilles nettes */
 .btn{padding:0 26px;min-height:48px;gap:0;font-weight:500;font-size:1rem;letter-spacing:-.012em;box-shadow:none;background:var(--ink);color:#fff;transition:background .25s,transform .35s var(--ease),opacity .25s}
@@ -695,7 +694,7 @@ h1 em,h2 em,.nuit h1 em,.nuit h2 em,.mer h2 em,.appel h2 em,.selection h2 em,.ap
 .entete{inset:0 0 auto 0}
 .capsule{width:100%;max-width:none;height:52px;margin:0;padding:0 max(22px,calc((100% - 1200px)/2));border-radius:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;background:rgba(251,249,244,.74);backdrop-filter:saturate(1.8) blur(22px);-webkit-backdrop-filter:saturate(1.8) blur(22px);box-shadow:0 .5px 0 rgba(31,28,24,.16)}
 .mk{width:26px}
-.nom{font:600 .8125rem/1 var(--f-titre);letter-spacing:-.01em}
+.nom{font:600 .95rem/1 var(--f-titre);letter-spacing:.02em}
 .nom i{font-weight:500;font-size:.5625rem;letter-spacing:.3em;margin-top:4px;opacity:.7}
 .nav{justify-self:center;gap:4px}
 .pill{display:none}
@@ -751,4 +750,4 @@ h1 em,h2 em,.nuit h1 em,.nuit h2 em,.mer h2 em,.appel h2 em,.selection h2 em,.ap
 @media(max-width:940px){.page-tete{padding-top:84px}}
 .srv-l,.etape,.plie{border-radius:0}
 .plie{border-radius:var(--r)}
-.srv-l button .mot,.srv-l .mot{font-family:var(--f-titre);font-weight:600;letter-spacing:-.03em}
+.srv-l button .mot,.srv-l .mot{font-family:var(--f-titre);font-weight:500;letter-spacing:-.015em}
